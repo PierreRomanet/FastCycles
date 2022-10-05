@@ -1,0 +1,15 @@
+**/*.o
+**/*.a
+**/*.mod
+2D/wrapper/*
+!2D/wrapper/.gitkeep
+3D/wrapper/*
+!3D/wrapper/.gitkeep
+2D/build/FastCycles
+3D/build/FastCycles
+personnal_guide/
+2D/problems/*
+!2D/problems/.gitkeep
+3D/problems/*
+!3D/problems/.gitkeep
+library/
