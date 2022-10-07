@@ -3,6 +3,9 @@
 **/*.mod
 2D/wrapper/*
 !2D/wrapper/.gitkeep
+!2D/wrapper/create_config_example02.m
+!2D/wrapper/read_data.m
+!2D/wrapper/seconds2duration.m
 3D/wrapper/*
 !3D/wrapper/.gitkeep
 2D/build/FastCycles
