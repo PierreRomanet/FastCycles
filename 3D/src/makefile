@@ -16,7 +16,7 @@ DST=build
 OBJ = variables.o default_values.o input_output.o special_functions.o initialisation.o solver.o
 
 software: $(OBJ) master.f90
-	$(F90) -ffree-line-length-none -O3 -w -fopenmp $(INCPATH) $(LIBS) $(OBJ) master.f90 -o ../fastcycles 
+	$(F90) -ffree-line-length-none -O3 -w -fopenmp $(INCPATH) $(LIBS) $(OBJ) master.f90 -o ../$(DST)/fastcycles 
 
 input_output.o: variables.o default_values.o input_output.f90
 	$(F90) $(F90FLAGS) $(FLAG) input_output.f90
@@ -43,4 +43,4 @@ variables.o: variables.f90
 	$(F90) $(F90FLAGS) variables.f90
 
 clean:
-	rm *.o *.mod
+	rm *.o *.mod ../$(DST)/fastcycles
