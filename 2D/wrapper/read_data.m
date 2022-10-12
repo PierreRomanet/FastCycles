@@ -8,14 +8,16 @@ direc = '../problems/example02/';
 
 % Import the velocity, theta and shear traction
 f = loadandprocessdata(direc,'V','theta','St','Sn');
+input = load_input(direc);
 
 
-
-%% Velocity vs time step
 % Create vector of distance 
 L = 4*0.1024E+05;
 ds = L/size(f.V,2);
 x = -L/2+ds/2:ds:L/2;
+
+
+%% Velocity vs time step
 
 % Create figure
 figure('position',[1 1 1000 1000])
@@ -77,6 +79,41 @@ for i=1:10:length(f.time)
     % Labels
     xlabel('Position along the fault (km)')
     ylabel('Elastic normal traction (MPa)')
+
+    % subplot properties
+    set(gca,'Fontsize',20)
+
+    % General properties
+    set(gcf,'color','w')
+
+    % Pause
+    pause(0.1)
+end
+
+
+%% Total shear traction
+%% Elastic Stress evolution along the fault
+figure('position',[1 1 1000 1000])
+for i=1:10:length(f.time)
+    clf
+
+    % Calculate total shear traction
+    St_tot = -input.Sn_ini.*input.a.*asinh(squeeze(f.V(i,:))./(2.*input.V0).*exp(input.f0./input.a+input.b./input.a.*squeeze(f.theta(i,:))));
+    St_tot = St_tot(input.mask==1);
+
+    % Plot
+    plot(x(input.mask==1),St_tot/1e6)
+
+    % Title
+    title(['Velocity at time: ' seconds2duration(f.time(i))])
+
+    % Limit label
+    xlim([min(x(input.mask==1)) max(x(input.mask==1))])
+%     ylim([min(St_tot,[],"all")*1.1/1e6 max(St_tot,[],"all")*1.1/1e6])
+
+    % Labels
+    xlabel('Position along the fault (km)')
+    ylabel('Total shear traction (MPa)')
 
     % subplot properties
     set(gca,'Fontsize',20)

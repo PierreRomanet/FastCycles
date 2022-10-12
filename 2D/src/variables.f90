@@ -108,7 +108,6 @@ type(mode), dimension(:), allocatable              :: modes_temp            ! Al
 real(kind=dp)                                      :: time_min
 real(kind=dp), dimension(:), allocatable           :: Tw          ! Allocated in initialisation, this is the mode dependent maximum time of integration, see Lapusta 2009
 real(kind=dp)                                      :: beta_min
-real(kind=dp)                                      :: gamma
 real(kind=dp)                                      :: rho_c      ! Allocated in initialisation, cutting frequency entering the definition of Tw
 real(kind=dp)                                      :: eta_w      ! Allocated in initialisation, cutting frequency entering the definition of Tw
 real(kind=dp)                                      :: nr_accuracy   ! Convergence of Newton raphson

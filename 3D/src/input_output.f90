@@ -87,7 +87,7 @@ subroutine read_config()
     namelist /material_and_loading/ mu, cp, cs,Vx_mask,Vy_mask
     namelist /geometry/ L_fault_x, nb_element_x, L_fault_y, nb_element_y
     namelist /output/               stride_time,freq_writing_file
-    namelist /hyperparameters/      rho_c, eta_w, beta_min, gamma, nr_accuracy, tol_solver,max_it, omp_threads, quasi_dynamic
+    namelist /hyperparameters/      rho_c, eta_w, beta_min, nr_accuracy, tol_solver,max_it, omp_threads, quasi_dynamic
 !
 !   Read variables from the input file
     open(unit=1,file=trim(config_file))
