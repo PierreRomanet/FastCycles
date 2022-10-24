@@ -563,7 +563,7 @@ do k2=1,nb_element_y
 		! Prediction curvSlip 
 		tX_slip(k1,k2) = slipX_e(k1,k2)/(slipX_e(k1,k2)**2+slipY_e(k1,k2)**2)**(0.5_dp)
 		tY_slip(k1,k2) = slipY_e(k1,k2)/(slipX_e(k1,k2)**2+slipY_e(k1,k2)**2)**(0.5_dp)
-		curvature(k1,k2) = L1(k1,k2)*tX_slip(k1,k2)**2+2*M1(k1,k2)*tX_slip(k1,k2)*tY_slip(k1,k2)+N1(k1,k2)*tX_slip(k1,k2)**2
+		curvature(k1,k2) = L1(k1,k2)*tX_slip(k1,k2)**2+2*M1(k1,k2)*tX_slip(k1,k2)*tY_slip(k1,k2)+N1(k1,k2)*tY_slip(k1,k2)**2
 
 		curvSlip_e(k1,k2) = curvature(k1,k2)*(slipX_e(k1,k2)**2+slipY_e(k1,k2)**2)**(0.5_dp)
 	enddo
